@@ -25,19 +25,26 @@ android {
     }
 
     compileOptions {
+        coreLibraryDesugaringEnabled = true
         sourceCompatibility JavaVersion.VERSION_21
         targetCompatibility JavaVersion.VERSION_21
+    }
+    viewBinding {
+        enabled = true
     }
 }
 
 dependencies {
+    // 基本ライブラリ
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
     implementation(libs.activity.ktx)
 
+    // Java 8+ API desugaring
     coreLibraryDesugaring(libs.desugar.jdk.libs)
 
+    // ストレージ・通信・DB関連 (home側)
     implementation(libs.datastore.preferences)
     implementation(libs.datastore.preferences.rxjava3)
     implementation(libs.okhttp)
@@ -45,6 +52,10 @@ dependencies {
     implementation(libs.room.runtime)
     annotationProcessor(libs.room.compiler)
 
+    // CardView (master側で追加されたUIパーツ)
+    implementation "androidx.cardview:cardview:1.0.0"
+
+    // テスト関連
     testImplementation(libs.junit)
     testImplementation(libs.robolectric)
     testImplementation(libs.test.core)
