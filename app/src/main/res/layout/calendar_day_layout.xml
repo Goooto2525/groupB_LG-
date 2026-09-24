@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="6dp"
+    android:background="@android:color/transparent">
+
+    <TextView
+        android:id="@+id/calendarDayText"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:gravity="center"
+        android:text="1"
+        android:textColor="@color/text_dark"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
+
+    <ImageView
+        android:id="@+id/calendarDayIcon"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginTop="2dp"
+        android:visibility="invisible"
+        android:src="@android:drawable/btn_star_big_on"
+        android:contentDescription="達成マーク"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/calendarDayStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="0..."
+        android:textColor="@color/text_gray"
+        android:textSize="10sp"
+        tools:ignore="HardcodedText,SmallSp" />
+
+</LinearLayout>
