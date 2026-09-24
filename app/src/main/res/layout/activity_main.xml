@@ -7,13 +7,122 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <!-- ヘッダー（戻るボタン） -->
+    <Button
+        android:id="@+id/button_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="戻る"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- 1行目 -->
+    <TextView
+        android:id="@+id/text_app_icon_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="アプリアイコン1"
+        app:layout_constraintBottom_toTopOf="@+id/text_app_icon_2"
+        app:layout_constraintEnd_toStartOf="@+id/text_app_name_1"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_back"
+        app:layout_setVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/text_app_name_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="アプリ名1"
+        app:layout_constraintBottom_toBottomOf="@+id/text_app_icon_1"
+        app:layout_constraintEnd_toStartOf="@+id/switch_button_1"
+        app:layout_constraintStart_toEndOf="@+id/text_app_icon_1"
+        app:layout_constraintTop_toTopOf="@+id/text_app_icon_1" />
+
+    <Switch
+        android:id="@+id/switch_button_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/text_app_icon_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_app_name_1"
+        app:layout_constraintTop_toTopOf="@+id/text_app_icon_1" />
+
+    <!-- 2行目 -->
+    <TextView
+        android:id="@+id/text_app_icon_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="アプリアイコン2"
+        app:layout_constraintBottom_toTopOf="@+id/text_app_icon_3"
+        app:layout_constraintEnd_toStartOf="@+id/text_app_name_2"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_app_icon_1" />
+
+    <TextView
+        android:id="@+id/text_app_name_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="アプリ名2"
+        app:layout_constraintBottom_toBottomOf="@+id/text_app_icon_2"
+        app:layout_constraintEnd_toStartOf="@+id/switch_button_2"
+        app:layout_constraintStart_toEndOf="@+id/text_app_icon_2"
+        app:layout_constraintTop_toTopOf="@+id/text_app_icon_2" />
+
+    <Switch
+        android:id="@+id/switch_button_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/text_app_icon_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_app_name_2"
+        app:layout_constraintTop_toTopOf="@+id/text_app_icon_2" />
+
+    <!-- 3行目 -->
+    <TextView
+        android:id="@+id/text_app_icon_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="アプリアイコン3"
+        app:layout_constraintBottom_toTopOf="@+id/button_home"
+        app:layout_constraintEnd_toStartOf="@+id/text_app_name_3"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_app_icon_2" />
+
+    <TextView
+        android:id="@+id/text_app_name_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="アプリ名3"
+        app:layout_constraintBottom_toBottomOf="@+id/text_app_icon_3"
+        app:layout_constraintEnd_toStartOf="@+id/switch_button_3"
+        app:layout_constraintStart_toEndOf="@+id/text_app_icon_3"
+        app:layout_constraintTop_toTopOf="@+id/text_app_icon_3" />
+
+    <Switch
+        android:id="@+id/switch_button_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/text_app_icon_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_app_name_3"
+        app:layout_constraintTop_toTopOf="@+id/text_app_icon_3" />
+
+    <!-- フッター（ホームへ戻るボタン） -->
+    <Button
+        android:id="@+id/button_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="ホームへ戻る"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
