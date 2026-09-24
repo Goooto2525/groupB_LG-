@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_light"
+    tools:context=".CalendarActivity_1">
+
+    <!-- 上部ヘッダー (Toolbar) -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="カレンダー"
+        app:titleTextColor="@color/text_dark" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- 1. 達成カレンダーサマリーカード (丸角ホワイト) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@android:color/white">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/cardSubtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📅 達成カレンダー"
+                        android:textColor="@color/purple_main"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/cardTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="日々のルーティン達成記録"
+                        android:textColor="@color/text_dark"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@id/streakCard"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cardSubtitle"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="できた日に達成マークが付きます。日付を選んで予定を確認・反映できます。"
+                        android:textColor="@color/text_gray"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toStartOf="@id/streakCard"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cardTitle"
+                        tools:ignore="HardcodedText" />
+
+                    <!-- 継続日数カード (薄紫) -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/streakCard"
+                        android:layout_width="84dp"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="@color/purple_light"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="現在の継続"
+                                android:textColor="@color/text_gray"
+                                android:textSize="10sp"
+                                tools:ignore="HardcodedText" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="🔥 5日"
+                                android:textColor="@color/purple_main"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="連続"
+                                android:textColor="@color/purple_main"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- カレンダーコンテナカード (丸角ホワイト) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@android:color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- カレンダー操作部 -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/monthText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerInParent="true"
+                            android:text="2026年\n9月"
+                            android:textColor="@color/text_dark"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@+id/navButtons"
+                            android:layout_centerInParent="true"
+                            android:orientation="horizontal"
+                            android:layout_marginEnd="8dp">
+
+                            <Button
+                                android:id="@+id/todayButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:minHeight="0dp"
+                                android:minWidth="0dp"
+                                android:paddingHorizontal="12dp"
+                                android:paddingVertical="8dp"
+                                android:text="今日\n(Today)"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_dark"
+                                android:backgroundTint="@color/bg_light"
+                                android:insetTop="0dp"
+                                android:insetBottom="0dp"
+                                app:cornerRadius="8dp"
+                                tools:ignore="HardcodedText" />
+
+                            <Button
+                                android:id="@+id/presetBatchButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:minHeight="0dp"
+                                android:minWidth="0dp"
+                                android:paddingHorizontal="12dp"
+                                android:paddingVertical="8dp"
+                                android:text="プリセット\nを一括反映"
+                                android:textSize="12sp"
+                                android:textColor="@color/purple_main"
+                                android:backgroundTint="@color/purple_light"
+                                android:insetTop="0dp"
+                                android:insetBottom="0dp"
+                                app:cornerRadius="8dp"
+                                tools:ignore="HardcodedText" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/navButtons"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerInParent="true"
+                            android:background="@color/bg_light"
+                            android:padding="2dp"
+                            android:backgroundTint="@color/bg_light"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/prevMonthButton"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:src="@android:drawable/ic_media_previous"
+                                android:contentDescription="前月" />
+
+                            <ImageButton
+                                android:id="@+id/nextMonthButton"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:src="@android:drawable/ic_media_next"
+                                android:contentDescription="次月" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <!-- 曜日ラベルヘッダー -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="8dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="日" android:textColor="#EF4444" android:textStyle="bold" tools:ignore="HardcodedText" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="月" android:textColor="@color/text_gray" android:textStyle="bold" tools:ignore="HardcodedText" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="火" android:textColor="@color/text_gray" android:textStyle="bold" tools:ignore="HardcodedText" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="水" android:textColor="@color/text_gray" android:textStyle="bold" tools:ignore="HardcodedText" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="木" android:textColor="@color/text_gray" android:textStyle="bold" tools:ignore="HardcodedText" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="金" android:textColor="@color/text_gray" android:textStyle="bold" tools:ignore="HardcodedText" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="土" android:textColor="#3B82F6" android:textStyle="bold" tools:ignore="HardcodedText" />
+                    </LinearLayout>
+
+                    <!-- カレンダービュー本体 -->
+                    <com.kizitonwose.calendar.view.CalendarView
+                        android:id="@+id/calendarView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cv_dayViewResource="@layout/calendar_day_layout" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 2. 下部の「選択中の日付・日程」プレビューカード (ホーム画面の美しい様式を参考) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@android:color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:id="@+id/selectedDateInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="選択中の日付"
+                                android:textColor="@color/text_gray"
+                                android:textSize="11sp"
+                                tools:ignore="HardcodedText" />
+
+                            <TextView
+                                android:id="@+id/selectedDateText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="9月4日 (金)"
+                                android:textColor="@color/text_dark"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText" />
+                        </LinearLayout>
+
+                        <!-- ボタン類 -->
+                        <Button
+                            android:id="@+id/applyPresetButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minHeight="0dp"
+                            android:minWidth="0dp"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="10dp"
+                            android:text="プリセット\nを適用"
+                            android:textSize="12sp"
+                            android:textColor="@color/text_dark"
+                            android:backgroundTint="@color/bg_light"
+                            app:cornerRadius="8dp"
+                            app:layout_constraintEnd_toStartOf="@id/openDayScheduleButton"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_marginEnd="8dp"
+                            tools:ignore="HardcodedText" />
+
+                        <Button
+                            android:id="@+id/openDayScheduleButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minHeight="0dp"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="10dp"
+                            android:text="この日の日程を開く →"
+                            android:textSize="12sp"
+                            android:textColor="@android:color/white"
+                            android:backgroundTint="@color/purple_main"
+                            app:cornerRadius="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            tools:ignore="HardcodedText" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/bg_light"
+                        android:layout_y="12dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="12dp" />
+
+                    <TextView
+                        android:id="@+id/todoCountText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="登録されているルーティンToDo (6件)"
+                        android:textColor="@color/text_gray"
+                        android:textSize="12sp"
+                        tools:ignore="HardcodedText" />
+
+                    <!-- ToDo 簡易タイムラインプレビューグリッド風 -->
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="2"
+                        android:rowCount="3"
+                        android:layout_marginTop="8dp"
+                        android:alignmentMode="alignBounds">
+
+                        <!-- 1つ目の予定 -->
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_margin="4dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="0dp"
+                            app:cardBackgroundColor="@color/bg_light">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp"
+                                android:text="🕒 08:00〜08:30 起床..."
+                                android:textSize="11sp"
+                                android:textColor="@color/text_dark"
+                                tools:ignore="HardcodedText" />
+                        </androidx.cardview.widget.CardView>
+
+                        <!-- 2つ目の予定 -->
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_margin="4dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="0dp"
+                            app:cardBackgroundColor="@color/bg_light">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp"
+                                android:text="🕒 09:30〜12:00 趣味..."
+                                android:textSize="11sp"
+                                android:textColor="@color/text_dark"
+                                tools:ignore="HardcodedText" />
+                        </androidx.cardview.widget.CardView>
+
+                    </GridLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

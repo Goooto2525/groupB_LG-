@@ -46,5 +46,7 @@ dependencies {
     androidTestImplementation libs.espresso.core
     androidTestImplementation libs.ext.junit
     implementation "androidx.cardview:cardview:1.0.0"
-
+    
+    // カレンダーライブラリの追加
+    implementation "com.kizitonwose.calendar:view:2.5.0"
 }
