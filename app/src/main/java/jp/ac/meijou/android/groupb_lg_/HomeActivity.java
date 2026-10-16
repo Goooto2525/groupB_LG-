@@ -152,17 +152,17 @@ public class HomeActivity extends AppCompatActivity {
         LinearLayout menuAppLock = findViewById(R.id.menuAppLock);
 
         menuTodoList.setOnClickListener(v -> {
-            Intent intent = new Intent(this, TodoListActivity.class);
+            Intent intent = new Intent(this, jp.ac.meijou.android.groupb_lg_.Date.class);
             startActivity(intent);
         });
 
         menuCalendar.setOnClickListener(v -> {
-            Intent intent = new Intent(this, CalendarActivity.class);
+            Intent intent = new Intent(this, CalendarActivity_1.class);
             startActivity(intent);
         });
 
         menuAppLock.setOnClickListener(v -> {
-            Intent intent = new Intent(this, AppLockActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         });
     }

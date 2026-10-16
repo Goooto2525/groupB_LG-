@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,5 +21,13 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // 戻るボタン(実質homeに返される)
+        Button buttonBack = findViewById(R.id.button_back);
+        buttonBack.setOnClickListener(v -> finish());
+
+        // ホームへ戻るボタン
+        Button buttonHome = findViewById(R.id.button_home);
+        buttonHome.setOnClickListener(v -> finish());
     }
 }
