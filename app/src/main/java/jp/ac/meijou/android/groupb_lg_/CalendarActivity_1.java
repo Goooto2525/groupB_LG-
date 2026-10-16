@@ -23,7 +23,10 @@ import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.TextStyle;
 import java.util.Locale;
-import java.util.WeekFields;
+import java.time.temporal.WeekFields;
+import android.widget.Button;
+import android.content.Intent;
+import androidx.appcompat.widget.Toolbar;
 
 public class CalendarActivity_1 extends AppCompatActivity {
 
@@ -44,6 +47,15 @@ public class CalendarActivity_1 extends AppCompatActivity {
             return insets;
         });
 
+        // 戻るボタン(home画面に戻るため）
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setNavigationOnClickListener(v -> {
+            Intent intent = new Intent(CalendarActivity_1.this, HomeActivity.class); // ※ Home画面のActivityクラス名を指定
+            // 必要に応じて重複起動を防ぐフラグを設定
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+            finish(); // カレンダー画面を閉じる
+        });
         today = LocalDate.now();
         selectedDate = today; // 初期状態は今日を選択
 
