@@ -23,7 +23,7 @@ constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayo
 activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "activityKtx" }
 
 desugar-jdk-libs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "desugarJdkLibs" }
-
+desugar = { group = "com.android.tools", name = "desugar_jdk_libs", version = "2.1.5" }
 datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastorePreferences" }
 datastore-preferences-rxjava3 = { group = "androidx.datastore", name = "datastore-preferences-rxjava3", version.ref = "datastorePreferences" }
 
